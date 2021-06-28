@@ -1,0 +1,1 @@
+ssh -i "wachy-cli-keyperm.pem" ec2-user@ec2-52-35-23-125.us-west-2.compute.amazonaws.com
