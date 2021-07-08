@@ -2,7 +2,13 @@ Parameters:
   EnvironmentName:
       Description: An environment name that will be prefixed to resources
       Type: String
-
+  AccessKeyId:
+      Description: An access key to an IAM user
+      Type: String
+  SecretAccessKey:
+      Description: A secret key to an IAM user
+      Type: String
+    
 Resources:
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
@@ -66,7 +72,7 @@ Resources:
       BlockDeviceMappings:
       - DeviceName: "/dev/sdk"
         Ebs:
-          VolumeSize: '10'
+          VolumeSize: 10
   WebAppGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -123,3 +129,15 @@ Resources:
       VpcId: 
         Fn::ImportValue:
           Fn::Sub: ${EnvironmentName}-VPCID
+
+Outputs:
+  AccessKeyId:
+    Description: a reference to the created 
+    Value: !Ref AccessKeyId
+    Export:
+      Name: !Sub ${EnvironmentName}-AccessKeyId
+  SecretAccessKey:
+    Description: a reference to the created 
+    Value: !Ref SecretAccessKey
+    Export:
+      Name: !Sub ${EnvironmentName}-AccessKeyId
