@@ -132,12 +132,12 @@ Resources:
 
 Outputs:
   AccessKeyId:
-    Description: a reference to the created 
+    Description: a reference to IAM AccessKeyId
     Value: !Ref AccessKeyId
     Export:
       Name: !Sub ${EnvironmentName}-AccessKeyId
   SecretAccessKey:
-    Description: a reference to the created 
+    Description: a reference to IAM SecretAccessKey
     Value: !Ref SecretAccessKey
     Export:
-      Name: !Sub ${EnvironmentName}-AccessKeyId
+      Name: !Sub ${EnvironmentName}-SecretAccessKey
